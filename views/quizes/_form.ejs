@@ -2,5 +2,15 @@
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>"/> <p>
 <label for="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>"/> <p>
+
+<label for="tematica" class="rem">Tem&aacute;tica:</label>
+<select id="tematica" name="quiz[tematica]">
+	<option value="otro" <% if ("otro" == quiz.tematica) { %> selected <% } %> >otro</option>
+	<option value="humanidades" <% if ("humanidades" == quiz.tematica) { %> selected <% } %> >humanidades</option>
+	<option value="ocio" <% if ("ocio" == quiz.tematica) { %> selected <% } %> >ocio</option>
+	<option value="ciencia" <% if ("ciencia" == quiz.tematica) { %> selected <% } %> >ciencia</option>
+	<option value="tecnologia" <% if ("tecnologia" == quiz.tematica) { %> selected <% } %> >tecnologia</option>
+</select>
+
 <a href="/quizes"><button type="button">Cancelar</button></a>
 <input type="submit" value="Salvar">
