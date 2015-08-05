@@ -22,7 +22,14 @@
 	<br/>
 	<h3>Comentarios:</h3>
 	<%for(index in quiz.Comments){%>
-		<p>- <%=quiz.Comments[index].texto%></p>
+		<%if(quiz.Comments[index].publicado || session.user){%>
+			<p>
+				<i>- <%=quiz.Comments[index].texto%></i>
+				<%if(session.user && !quiz.Comments[index].publicado){%>
+					<a href="/quizes/<%= quiz.id %>/comments/<%=quiz.Comments[index].id%>/publish" class="btn btn-primary btn-sm"><i class="fa fa-share-alt"></i> Publicar</a>
+				<%}%>
+			</p>
+		<%}%>
 	<%}%>
 	<%if (quiz.Comments.length==0){%>
 	<i>No hay comentarios</i>
