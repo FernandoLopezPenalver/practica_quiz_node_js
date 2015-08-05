@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 		stats.quiz_count = count;
 		models.Comment.count().then(function(count) {
 			stats.comm_count = count;
-			stats.quiz_comm_avg = stats.quiz_count==0 ? 0 : (stats.quiz_count/stats.comm_count).toFixed(2);
+			stats.quiz_comm_avg = stats.quiz_count==0 ? 0 : (stats.comm_count/stats.quiz_count).toFixed(2);
       
 			models.Quiz.count({include: [{ model: models.Comment, required:true }], distinct: true}).then(function(count) {
 				stats.quiz_within_count = count;
