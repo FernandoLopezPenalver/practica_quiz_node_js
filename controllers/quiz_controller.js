@@ -25,7 +25,8 @@ exports.index = function(req, res) {
   var search;
   var consulta = {};
   if (req.query.search) {
-	  search = (req.query.search || '').replace(" ", "%");
+	  //search = (req.query.search || '').replace(" ", "%");
+	  search = (req.query.search || '').split(" ").join("%");
 	  consulta = { where: ["lower(pregunta) like lower(?)", '%'+search+'%'], order: 'pregunta ASC' };
   }
   models.Quiz.findAll(consulta)
@@ -44,7 +45,7 @@ exports.show = function(req, res) {
 exports.answer = function(req, res) {
   console.log("quiz_controller.answer quiz.pregunta="+req.quiz.pregunta);
   var resultado = 'Incorrecto';
-  if (req.query.respuesta === req.quiz.respuesta) {
+  if (req.query.respuesta.toLowerCase() === req.quiz.respuesta.toLowerCase()) {
     resultado = 'Correcto';
   }
   res.render(
@@ -60,7 +61,7 @@ exports.answer = function(req, res) {
 exports.new = function(req, res) {
   console.log("quiz_controller.new");
   var quiz = models.Quiz.build(
-    {pregunta: "", respuesta: ""}
+    {pregunta: "", respuesta: "", tematica: ""}
   );
 
   res.render('quizes/new', {quiz: quiz, errors: []});

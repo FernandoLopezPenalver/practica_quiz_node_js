@@ -41,6 +41,25 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Auto-logout
+app.use( function(req, res, next) {
+  if ( req.session.user ) {
+    var ahora = new Date();                           // ahora el tiempo es mayor
+    var activo = new Date( req.session.user.activo ); // momento cuando se hizo algo
+	console.log("tiempo ultimo acceso="+ ((ahora-activo)/1000));
+    if ( ( ahora-activo ) > 120000 ) {                // 120000ms = 2 minutos
+        delete req.session.user;
+        req.session.errors = [ { "message": 'Superado el tiempo de inactividad' } ];
+        res.redirect("/login");
+        return;
+    } else {
+        req.session.user.activo = new Date();
+    }
+  }
+  next();
+});
+
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
