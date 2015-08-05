@@ -1,0 +1,3 @@
+﻿He copiado los certificados y claves del profe, porque en mi windows, no he podido usar correctamente ssl:
+al generar el csr me pide un fichero de configuración de openssl que no tengo.
+Estoy utilizando el openssl que viene en la shel del git, tendría que instalar correctamente openssl en mi windows...
