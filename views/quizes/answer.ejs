@@ -1,5 +1,10 @@
   <p>
+	<div class="alert  <% if (respuesta=='Correcto') {%> alert-success<% } else {%> alert-danger<%}%>">
     <%= respuesta %>
-    <a href="/quizes/<%= quiz.id %>">Volver</a>
+	</div>
+	
+    <a href="/quizes/<%= quiz.id %>" class="btn btn-primary">
+		Volver
+	</a>
   </p>
   

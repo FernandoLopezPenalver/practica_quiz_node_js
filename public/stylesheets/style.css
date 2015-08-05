@@ -1,13 +1,12 @@
-*                    { margin: 0; padding: 0; }
-body                 { font: 16px Georgia, serif; }
+body {
+	background-color: #ececec;
+}
+.container {
+	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.44);
+	background-color: white;
+}
 
-#page-wrap           { margin: 2% auto; color: white; }
-#page-wrap > .main   { border: 1px solid #999; padding: 1%; 
-	                   margin-bottom: 1px; color: black;}
-
-section > div        { padding: 20px; }
-header, nav, section { background: #eee; text-align: center;}
-footer               { background: #eee; text-align: center;}
-nav span             { margin: 0px 10px 0px 0px;}
-
-#ErrorMsgs           { color: #f61; font-size: smaler}
+header, footer               { 
+	padding: 2%;
+	text-align: center;
+}

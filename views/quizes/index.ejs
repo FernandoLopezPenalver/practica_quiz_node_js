@@ -1,30 +1,41 @@
-<div style="text-align: left;">
-  <table>
-  <% var i; for (i=0; i < quizes.length; i++) { %>        
-    <tr>
-      <td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
-      <td><%= quizes[i].tematica %></td>
-      <td><a href="quizes/<%= quizes[i].id %>/edit"><button>editar</button></a></td>
-      <td>
-        <form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
-          <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">
-            borrar
-          </button>
-        </form>
-      </td>
-    </tr> 
-  <% } %>
-  </table>
+		<table class="table table-striped">
+		<% var i; for (i=0; i < quizes.length; i++) { %>        
+		<tr>
+			  <td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+			  <td><%= quizes[i].tematica %></td>
+			  <td>
+				<a href="quizes/<%= quizes[i].id %>" class="btn btn-primary btn-sm">
+				<i class="fa fa-keyboard-o"></i>
+				Contestar
+				</a>
+			  </td>
+			  <td><a href="quizes/<%= quizes[i].id %>/edit"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Editar</button></a></td>
+			  <td>
+				<form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
+				  <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');" class="btn btn-primary btn-sm">
+					<i class="fa fa-trash"></i>
+					Borrar
+				  </button>
+				</form>
+			  </td>
+		</tr> 
+		<% } %>
+		</table>
+  
+		<br/>
+		<a href="/quizes/new" class="btn btn-primary"><i class="fa fa-plus"></i> Crear pregunta</i></a>
 
-	<br/>
-	<a href="/quizes/new"><button type="button">Crear pregunta</button></a>
-
-	<br/>
-	<br/>
-	<form name="form" action="/quizes" method="get">
-		<h3>B&uacute;squeda de preguntas</h3>
-		Buscar: 
-		<input type="text" name="search" value="<%= search %>">
-		<input type="submit" value="Enviar">
-	</form>
-</div>
+		<br/>
+		<br/>
+		<form name="form" action="/quizes" method="get" class="form-inline">
+			<h3>B&uacute;squeda de preguntas</h3>
+			<div class="form-group">
+				<input type="text" class="form-control col-xs-3" id="search" name="search" value="<%= search %>" placeholder="Buscar...">
+				&nbsp;
+				
+				<button type="submit" class="btn btn-primary">
+					<i class="fa fa-search"></i>
+					Buscar
+				</button>
+			</div>
+		</form>

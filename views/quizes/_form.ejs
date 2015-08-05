@@ -1,16 +1,30 @@
-<label for="preg" class="rem">Pregunta:</label>
-<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>"/> <p>
-<label for="resp" class="rem">Respuesta:</label>
-<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>"/> <p>
+<div class="form-group">
+	<label for="preg" class="rem">Pregunta:</label>
+	<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>"  class="form-control"/>
+</div>
 
-<label for="tematica" class="rem">Tem&aacute;tica:</label>
-<select id="tematica" name="quiz[tematica]">
-	<option value="otro" <% if ("otro" == quiz.tematica) { %> selected <% } %> >otro</option>
-	<option value="humanidades" <% if ("humanidades" == quiz.tematica) { %> selected <% } %> >humanidades</option>
-	<option value="ocio" <% if ("ocio" == quiz.tematica) { %> selected <% } %> >ocio</option>
-	<option value="ciencia" <% if ("ciencia" == quiz.tematica) { %> selected <% } %> >ciencia</option>
-	<option value="tecnologia" <% if ("tecnologia" == quiz.tematica) { %> selected <% } %> >tecnologia</option>
-</select>
+<div class="form-group">	
+	<label for="resp" class="rem">Respuesta:</label>
+	<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" class="form-control"/>
+</div>
 
-<a href="/quizes"><button type="button">Cancelar</button></a>
-<input type="submit" value="Salvar">
+<div class="form-group">
+	<label for="tematica" class="rem">Tem&aacute;tica:</label>
+	<select id="tematica" name="quiz[tematica]"  class="form-control">
+		<option value="otro" <% if ("otro" == quiz.tematica) { %> selected <% } %> >otro</option>
+		<option value="humanidades" <% if ("humanidades" == quiz.tematica) { %> selected <% } %> >humanidades</option>
+		<option value="ocio" <% if ("ocio" == quiz.tematica) { %> selected <% } %> >ocio</option>
+		<option value="ciencia" <% if ("ciencia" == quiz.tematica) { %> selected <% } %> >ciencia</option>
+		<option value="tecnologia" <% if ("tecnologia" == quiz.tematica) { %> selected <% } %> >tecnologia</option>
+	</select>
+</div>
+
+
+<a href="/quizes" class="btn btn-primary">
+	<i class="fa fa-times"></i>
+	Cancelar
+</a>
+<button type="submit" class="btn btn-primary">
+	<i class="fa fa-check"></i>
+	Guardar
+</button>

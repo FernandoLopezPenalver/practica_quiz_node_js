@@ -1,13 +1,23 @@
-<div style="text-align: left;">
+<div class="well well-info">
 	<form method="get" action="/quizes/<%= quiz.id %>/answer">        
-	  Pregunta: <%= quiz.pregunta %> <br/>
-	  Tem&aacute;tica: <%= quiz.tematica %> <br/>
+		
+	  <strong>Pregunta:</strong> <%= quiz.pregunta %> <br/>
+	  <strong>Tem&aacute;tica:</strong> <%= quiz.tematica %> <br/>
 	  <input type="text" name="respuesta" value="Respuesta"/>
-	  <input type="submit" value="Enviar">
+	  
+	  
+	  <button type="submit" class="btn btn-primary">
+		<i class="fa fa-check"></i>
+		Enviar
+	  </button>
 	</form>
 
 	<br/>
-	<p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
+	<p>
+	<a href="/quizes/<%= quiz.id %>/comments/new" class="btn btn-primary">
+		<i class="fa fa-plus"></i>
+		Nuevo comentario
+	</a>
 
 	<br/>
 	<h3>Comentarios:</h3>
