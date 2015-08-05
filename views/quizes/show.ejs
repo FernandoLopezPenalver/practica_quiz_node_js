@@ -1,6 +1,20 @@
-<form method="get" action="/quizes/<%= quiz.id %>/answer">        
-  Pregunta: <%= quiz.pregunta %> <br/>
-  Tem&aacute;tica: <%= quiz.tematica %> <br/>
-  <input type="text" name="respuesta" value="Respuesta"/>
-  <input type="submit" value="Enviar">
-</form>
+<div style="text-align: left;">
+	<form method="get" action="/quizes/<%= quiz.id %>/answer">        
+	  Pregunta: <%= quiz.pregunta %> <br/>
+	  Tem&aacute;tica: <%= quiz.tematica %> <br/>
+	  <input type="text" name="respuesta" value="Respuesta"/>
+	  <input type="submit" value="Enviar">
+	</form>
+
+	<br/>
+	<p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
+
+	<br/>
+	<h3>Comentarios:</h3>
+	<%for(index in quiz.Comments){%>
+		<p>- <%=quiz.Comments[index].texto%></p>
+	<%}%>
+	<%if (quiz.Comments.length==0){%>
+	<i>No hay comentarios</i>
+	<%}%>
+</div>
