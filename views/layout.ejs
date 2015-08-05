@@ -17,6 +17,12 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<header id="h1">
+			<%if(!session.user){%>
+			  <span class="pull-right"><a href="/login">Login</a></span>
+			<%}else{%>
+			  <span class="pull-right"> <i class="fa fa-user"></i> <%=session.user.username%> <a href="/logout">Logout</a></span>
+			<%}%>
+		
 			<h2 class="text-warning">Quiz<span>: el juego de las preguntas</span></h2>
 			</header>
 		</div>
