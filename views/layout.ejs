@@ -12,6 +12,7 @@
         type='text/css'
         media='only screen and (max-width: 480px)' 
         href='/stylesheets/smartphone.css' />
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 </head> 
 
@@ -47,6 +48,14 @@
 	<a href="https://github.com/FernandoLopezPenalver/practica_quiz_node_js" target="_blank">
 		Practica en gibhub</a>
   </footer>
+  
+<script type="text/javascript">
+$(document).ready(function(){
+	if ($(window).width()>=530) {
+		$('#n1').css('height', $('#s1').css('height') ) ;
+	}
+});
+</script>  
 </div>
 </body> 
 </html>
