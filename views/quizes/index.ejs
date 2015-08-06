@@ -5,20 +5,63 @@
 			  <td><%= quizes[i].tematica %></td>
 			  <%if(session.user){%>
 			  <td>
+				<div class="btn-toolbar" role="toolbar">
+					<div class="btn-group" role="group">
+						<a href="quizes/<%= quizes[i].id %>" class="btn btn-primary btn-sm">
+						<i class="fa fa-keyboard-o"></i>
+						<span class="hidden-xs">
+						Contestar
+						</span>
+						</a>
+					</div>
+					<div class="btn-group" role="group">
+						<a href="quizes/<%= quizes[i].id %>/edit" class="btn btn-primary btn-sm">
+							<i class="fa fa-pencil"></i> 
+							<span class="hidden-xs">
+							Editar
+							</span>
+						</a>
+					</div>
+					<div class="btn-group" role="group">
+						<form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
+						  <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');" class="btn btn-primary btn-sm">
+							<i class="fa fa-trash"></i>
+							<span class="hidden-xs">
+							Borrar
+							</span>
+						  </button>
+						</form>
+					</div>
+				</div>
+			  </td>
+			  <!--
+			  <td>
 				<a href="quizes/<%= quizes[i].id %>" class="btn btn-primary btn-sm">
 				<i class="fa fa-keyboard-o"></i>
+				<span class="hidden-xs">
 				Contestar
+				</span>
 				</a>
 			  </td>
-			  <td><a href="quizes/<%= quizes[i].id %>/edit"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Editar</button></a></td>
+			  <td>
+				<a href="quizes/<%= quizes[i].id %>/edit" class="btn btn-primary btn-sm">
+					<i class="fa fa-pencil"></i> 
+					<span class="hidden-xs">
+					Editar
+					</span>
+				</a>
+			  </td>
 			  <td>
 				<form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
 				  <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');" class="btn btn-primary btn-sm">
 					<i class="fa fa-trash"></i>
+					<span class="hidden-xs">
 					Borrar
+					</span>
 				  </button>
 				</form>
 			  </td>
+			  -->
 			  <%}%>
 		</tr> 
 		<% } %>
